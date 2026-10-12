@@ -173,7 +173,12 @@ function renderPlatforms(list) {
             <div class="glass-card p-6 rounded-2xl flex flex-col justify-between space-y-4 relative group">
                 <div class="space-y-3">
                     <div class="flex items-center justify-between">
-                        <h3 class="flex items-center gap-2 text-xl font-extrabold text-white group-hover:text-vortex-cyan transition"><i class="fa-solid fa-globe text-vortex-cyan" aria-hidden="true"></i>${escapeHTML(site.name)}</h3>
+                        <h3 class="flex items-center gap-2 text-xl font-extrabold text-white group-hover:text-vortex-cyan transition">
+                            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-slate-900">
+                                <img src="https://www.google.com/s2/favicons?domain_url=${encodeURIComponent(site.url)}&sz=64" alt="" loading="lazy" class="h-6 w-6 rounded object-contain" onerror="this.remove(); this.nextElementSibling.classList.remove('hidden')">
+                                <i class="fa-solid fa-globe text-vortex-cyan hidden" aria-hidden="true"></i>
+                            </span>${escapeHTML(site.name)}
+                        </h3>
                         <span class="text-xs bg-vortex-pink/20 text-vortex-pink border border-vortex-pink/30 px-2.5 py-1 rounded-lg font-bold">${escapeHTML(site.category)}</span>
                     </div>
 
