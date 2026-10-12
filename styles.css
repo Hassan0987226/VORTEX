@@ -94,3 +94,15 @@ body {
 ::-webkit-scrollbar-thumb:hover {
     background: #00f2fe;
 }
+
+#siteMenu > summary::-webkit-details-marker {
+    display: none;
+}
+
+.site-menu-panel {
+    display: none;
+}
+
+#siteMenu[open] .site-menu-panel {
+    display: block;
+}

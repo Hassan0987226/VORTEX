@@ -49,6 +49,12 @@
 
                 <!-- Header Actions -->
                 <div class="flex items-center gap-3">
+                    <details id="siteMenu" class="relative">
+                        <summary aria-label="Open sites menu" class="list-none cursor-pointer btn-cyan-gradient text-slate-950 font-extrabold px-3 sm:px-4 py-2 rounded-xl text-xs flex items-center gap-2 shadow-cyan-glow">
+                            <i class="fa-solid fa-globe" aria-hidden="true"></i> Sites <i class="fa-solid fa-chevron-down text-[9px]" aria-hidden="true"></i>
+                        </summary>
+                        <div id="siteMenuOptions" class="site-menu-panel absolute right-0 top-full mt-2 w-56 max-h-80 overflow-y-auto rounded-xl border border-vortex-cyan/30 bg-slate-950 p-2 shadow-2xl z-50"></div>
+                    </details>
                     <button onclick="openProxyViewer('https://xxx.com', 'XXX.com')" class="px-4 py-2 rounded-xl bg-vortex-cyan/10 hover:bg-vortex-cyan/20 border border-vortex-cyan/30 text-vortex-cyan font-bold text-xs flex items-center gap-2 transition">
                         <i class="fa-solid fa-server"></i> <span class="hidden sm:inline">Launch Proxy Engine</span>
                     </button>
@@ -68,42 +74,23 @@
                 VORTEX indexes media networks and routes traffic through server-side proxy relays so you don't face connection errors or need third-party VPN apps.
             </p>
         </div>
-
         <!-- Search Bar -->
         <div class="max-w-3xl mx-auto mb-8">
-            <div class="glass-panel p-2.5 rounded-2xl border-2 border-vortex-cyan/40 shadow-cyan-glow flex flex-col sm:flex-row items-center gap-3">
+            <form action="https://www.google.com/search" method="get" target="_blank"
+                class="glass-panel p-2.5 rounded-2xl border-2 border-vortex-cyan/40 shadow-cyan-glow flex flex-col sm:flex-row items-center gap-3">
                 <div class="flex items-center w-full px-3 py-2 text-gray-400">
                     <i class="fa-solid fa-magnifying-glass text-xl text-vortex-cyan mr-3"></i>
-                    <input
-                        type="text"
-                        id="searchInput"
-                        onkeyup="filterResults()"
-                        placeholder="Search adult platforms (e.g., XXX, XNXX, Mat6Tube, SpankBang)..."
-                        class="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none text-base sm:text-lg"
-                    />
-                    <button onclick="clearSearch()" class="text-gray-500 hover:text-gray-300 px-2">
+                    <input type="text" id="searchInput" name="q" placeholder="Search Google..."
+                        class="w-full bg-transparent text-white placeholder-gray-500 focus:outline-none text-base sm:text-lg" />
+                    <button type="button" onclick="clearSearch()" class="text-gray-500 hover:text-gray-300 px-2">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
-                <button onclick="filterResults()" class="w-full sm:w-auto px-7 py-3.5 rounded-xl btn-cyan-gradient text-slate-950 font-extrabold text-sm flex items-center justify-center gap-2 whitespace-nowrap shadow-lg">
-                    <i class="fa-solid fa-bolt"></i> Search
+                <button type="submit"
+                    class="w-full sm:w-auto px-7 py-3.5 rounded-xl btn-cyan-gradient text-slate-950 font-extrabold text-sm flex items-center justify-center gap-2 whitespace-nowrap shadow-lg">
+                    <i class="fa-brands fa-google" aria-hidden="true"></i> Search Google
                 </button>
-            </div>
-
-            <!-- Category Filters -->
-            <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs font-semibold">
-                <span class="text-gray-500">Filters:</span>
-                <button onclick="setCategory('All')" id="catAll" class="px-3.5 py-1.5 rounded-xl bg-vortex-cyan text-slate-950 font-bold transition">All Platforms</button>
-                <button onclick="setCategory('Tube')" id="catTube" class="px-3.5 py-1.5 rounded-xl bg-vortex-panel hover:bg-vortex-card text-gray-300 border border-white/10 transition">Tube Sites</button>
-                <button onclick="setCategory('HD')" id="catHD" class="px-3.5 py-1.5 rounded-xl bg-vortex-panel hover:bg-vortex-card text-gray-300 border border-white/10 transition">HD / 4K</button>
-                <button onclick="setCategory('Streams')" id="catStreams" class="px-3.5 py-1.5 rounded-xl bg-vortex-panel hover:bg-vortex-card text-gray-300 border border-white/10 transition">Live Streams</button>
-            </div>
-        </div>
-
-        <!-- Search Engine Site Results Grid -->
-        <div id="resultsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <!-- Dynamically Populated by JavaScript -->
-        </div>
+            </form>
 
     </main>
 
