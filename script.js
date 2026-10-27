@@ -136,11 +136,7 @@ function renderSiteMenu() {
         </a>
     `).join('');
 
-    menu.innerHTML = `${siteLinks}
-        <a href="vortex_search_engine.html" class="mt-1 flex items-center gap-2 border-t border-white/10 px-3 py-2.5 text-xs font-bold text-vortex-cyan hover:bg-vortex-cyan/10 transition">
-            <i class="fa-solid fa-layer-group" aria-hidden="true"></i> View All Sites
-        </a>
-    `;
+    menu.innerHTML = siteLinks;
 
     siteMenu.addEventListener('click', event => {
         if (event.target.closest('a')) siteMenu.removeAttribute('open');
@@ -337,20 +333,11 @@ function reloadProxyFrame() {
 
 document.addEventListener('DOMContentLoaded', () => {
     renderSiteMenu();
-    renderPlatforms(platforms);
 
     const addSiteForm = getElement('addSiteForm');
     if (addSiteForm) {
         addSiteForm.addEventListener('submit', addSite);
         addSiteForm.elements.namedItem('url').addEventListener('input', event => event.target.setCustomValidity(''));
-    }
-
-    const resultsGrid = getElement('resultsGrid');
-    if (resultsGrid) {
-        resultsGrid.addEventListener('click', event => {
-            const proxyButton = event.target.closest('[data-proxy-url]');
-            if (proxyButton) openProxyViewer(proxyButton.dataset.proxyUrl, proxyButton.dataset.proxyName);
-        });
     }
 
     document.addEventListener('keydown', event => {

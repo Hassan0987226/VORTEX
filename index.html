@@ -19,6 +19,9 @@
 
 <body class="font-sans antialiased relative min-h-screen flex flex-col justify-between">
 
+    <!-- 3D background: edit background.js for the scene; edit .scene-background in styles.css for opacity and layering. -->
+    <canvas id="sceneBackground" class="scene-background" aria-hidden="true"></canvas>
+
     <!-- Background Glow Effects -->
     <div class="glow-bg-cyan -top-20"></div>
     <div class="glow-bg-pink top-[40%]"></div>
@@ -71,6 +74,10 @@
                         class="px-4 py-2 rounded-xl bg-vortex-cyan/10 hover:bg-vortex-cyan/20 border border-vortex-cyan/30 text-vortex-cyan font-bold text-xs flex items-center gap-2 transition">
                         <i class="fa-solid fa-server"></i> <span class="hidden sm:inline">Launch Proxy Engine</span>
                     </button>
+                    <button onclick="openProxyViewer('https://xnx.com', 'XNX.com')"
+                        class="px-4 py-2 rounded-xl bg-vortex-cyan/10 hover:bg-vortex-cyan/20 border border-vortex-cyan/30 text-vortex-cyan font-bold text-xs flex items-center gap-2 transition">
+                        <i class="fa-solid fa-server"></i> <span class="hidden sm:inline">Launch Proxy Engine</span>
+                    </button>
                 </div>
             </div>
         </header>
@@ -106,25 +113,6 @@
                     </button>
                 </form>
             </div>
-
-            <section aria-label="Media platforms" class="max-w-6xl mx-auto">
-                <div class="mb-6 overflow-x-auto">
-                    <div class="flex min-w-max sm:min-w-0 sm:flex-wrap items-center justify-center gap-2" role="group"
-                        aria-label="Filter platforms by category">
-                        <button type="button" id="catAll" onclick="setCategory('All')"
-                            class="px-3.5 py-2 rounded-xl bg-vortex-cyan text-slate-950 font-bold text-xs sm:text-sm transition">All
-                            platforms</button>
-                        <button type="button" id="catTube" onclick="setCategory('Tube')"
-                            class="px-3.5 py-2 rounded-xl bg-vortex-panel hover:bg-vortex-card text-gray-300 border border-white/10 text-xs sm:text-sm transition">Tube</button>
-                        <button type="button" id="catHD" onclick="setCategory('HD')"
-                            class="px-3.5 py-2 rounded-xl bg-vortex-panel hover:bg-vortex-card text-gray-300 border border-white/10 text-xs sm:text-sm transition">HD</button>
-                        <button type="button" id="catStreams" onclick="setCategory('Streams')"
-                            class="px-3.5 py-2 rounded-xl bg-vortex-panel hover:bg-vortex-card text-gray-300 border border-white/10 text-xs sm:text-sm transition">Streams</button>
-                    </div>
-                </div>
-                <div id="resultsGrid" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-5"
-                    aria-live="polite"></div>
-            </section>
 
         </main>
 
@@ -217,6 +205,8 @@
 
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js" defer></script>
+    <script src="background.js" defer></script>
     <script src="script.js" defer></script>
 </body>
 
